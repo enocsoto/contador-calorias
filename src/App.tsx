@@ -16,13 +16,17 @@ function App() {
 
       <section className="bg-slate-500 py-20 px-5">
         <div className="max-w-4xl mx-auto">
-          <Form dispatch={dispatch} />
+          <Form
+            dispatch={dispatch}
+            state={state}
+          />
         </div>
       </section>
       <section className="mx-auto p-10 max-w-4xl">
         <div className="max-w-4xl mx-auto">
           <ActivitiesList
             activities={state.activities}
+            dispatch={dispatch}
           />
         </div>
       </section>
