@@ -1,16 +1,19 @@
-import { useReducer } from "react"
+import { useEffect, useReducer } from "react"
 import Form from "./components/Form"
 import { activityReducer, initialState } from "./reducers/activity-reducer"
 import ActivitiesList from "./components/ActivitiesList"
 
 function App() {
   const [state, dispatch] = useReducer(activityReducer, initialState)
+  useEffect(() => {
+    localStorage.setItem("activities", JSON.stringify(state.activities))
+  }, [state.activities])
 
   return (
     <>
       <header className="bg-slate-600 py-3">
-        <div className="max-w-4xl mx-auto flex justify-between">
-          <h1 className="text-center text-lg font-bold text-white uppercase">Contador de Calorias</h1>
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-center text-3xl font-semibold text-white uppercase">Contador de Calorias</h1>
         </div>
       </header>
 
