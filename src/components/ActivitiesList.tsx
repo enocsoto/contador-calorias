@@ -24,10 +24,8 @@ const ActivitiesList = ({ activities, dispatch }: ActivitiesListProps) => {
         {
           !canRestartApp
             ? <button
-              className="text-white bg-slate-600
-         hover:text-white text-1xl border-2
-          hover:bg-slate-500 gap-4
-           p-1 rounded-lg">
+              className="text-white bg-slate-600 hover:text-white text-1xl border-2 hover:bg-slate-500 gap-4 p-2 rounded-lg"
+              onClick={() => dispatch({ type: 'restart-app' })}>
               Reiniciar App
             </button>
             : null
@@ -39,11 +37,11 @@ const ActivitiesList = ({ activities, dispatch }: ActivitiesListProps) => {
         activities.map(activity => (
           <div
             key={activity.id}
-            className="px-5 py-10 bg-white mt-5 flex justify-between"
+            className="px-5 py-10 bg-white mt-5 flex justify-between shadow-md rounded-md"
           >
             <div className="space-y-2 relative">
               <p
-                className={`absolute -top-8 -left-8 px-10 py-2 text-white uppercase font-semibold 
+                className={`absolute -top-8 -left-8 px-10 py-2 text-white uppercase font-semibold rounded-md
                   ${activity.category === 1 ? 'bg-cyan-600' : 'bg-sky-700 text-white'}`}>
                 {categoryNames(+activity.category)}
               </p>
